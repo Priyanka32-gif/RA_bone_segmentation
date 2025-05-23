@@ -22,6 +22,7 @@ Task 1.1 – Bone Segmentation:
 - Morphological operation to dilate and fill the bone mask
 - Output masks: femur_tibia_segmentation_task1.1.nii.gz
 
+
 Task 1.2 – Contour Expansion:
 - Used Erosion to shrink bone and get outershell of bone
 - Euclidian Distance Transform used to calculate points outside bone
@@ -29,10 +30,12 @@ Task 1.2 – Contour Expansion:
 - Same method applied to expand contour by 4mm
 - Output masks: bone_mask_2mm_expanded.nii.gz, bone_mask_4mm_expanded.nii.gz 
 
+
 Task 1.3 – Randomized Contour Expansion:
 - 2 mm expansion performed using distance transform
 - Two randomized masks generated using 20% and 60% random fill fraction
 - Output: Randomized_bone_Mask1.nii.gz, Randomized_bone_Mask2.nii.gz
+
 
 Task 1.4 – Landmark Identification:
 - Tibial plateau surface extracted from slices 94–215
@@ -41,8 +44,17 @@ Task 1.4 – Landmark Identification:
 - Visualize Axial view in 3d view
 - Extracted the lowest point of depth (z) from each five mask
 
+Reason for higher z point on medial and lateral surface
 
-Lowest Medial and Lateral for Orginal Filled Tibia Mask:
+- I found the medial and lateral region properly and visualize it in 2d and 3d image they were separated properly, 
+later on to find lowest point, i thought z max will be the lowest, later i realize , i need to find lowest z on the
+surface, it got me time to know the anatomy of tibia mask. I realize too late to write a logic and properly find the lowest
+point. Within a remaining time i tried my best to find the point still no logic worked and was returning none. That's why i am uploading 
+worked logic.  That is the reason i have not found lowest point on surface.
+I am really disappointed, for not completing task properly. I hope you will carefully examine my other works on task, I really gave my best.
+
+
+Lowest Medial and Lateral for Original Filled Tibia Mask:
 	- [317.23645866 243.35947514 216] [329.40443242 240.75205219 216]
 
 Lowest Medial and Lateral for 2mm expanded mask:
