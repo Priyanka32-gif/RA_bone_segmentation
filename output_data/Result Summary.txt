@@ -1,0 +1,58 @@
+Result Summary
+
+Bone Segmentation and Landmark Localization
+
+The code of all four task is in RA_bone_segmentation.ipynb file inside notebook folder
+
+Information Resources:
+
+1. To understand medical image: https://www.synopsys.com/glossary/what-is-medical-image-segmentation.html
+2. To understand Nifti file formats and loading of file :https://rylezhou.medium.com/how-to-plot-display-nifti-nii-medical-images-in-python-1368443fed77
+3. To understand the threshold on images: https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html
+4. To get a concept of segmentation :https://youtu.be/BVwXF50mkB4?si=ucPX7s9gWzUo7pml
+5. To understand morphological operation: https://youtu.be/X7g6o2WYKl0?si=STAF3glouCE3rknV
+6. ChatGPT (OpenAI) for conceptual clarification and coding guidance
+
+
+
+Task 1.1 – Bone Segmentation:
+- Visualize bone image and mask using nibabel library
+- Femur and tibia masks were segmented using threshold = 350 HU
+- Used NumPy bincount function to count bone segments and to label tibia and femur mask
+- Morphological operation to dilate and fill the bone mask
+- Output masks: femur_tibia_segmentation_task1.1.nii.gz
+
+Task 1.2 – Contour Expansion:
+- Used Erosion to shrink bone and get outershell of bone
+- Euclidian Distance Transform used to calculate points outside bone
+- Then expanded contour by 2mm
+- Same method applied to expand contour by 4mm
+- Output masks: bone_mask_2mm_expanded.nii.gz, bone_mask_4mm_expanded.nii.gz 
+
+Task 1.3 – Randomized Contour Expansion:
+- 2 mm expansion performed using distance transform
+- Two randomized masks generated using 20% and 60% random fill fraction
+- Output: Randomized_bone_Mask1.nii.gz, Randomized_bone_Mask2.nii.gz
+
+Task 1.4 – Landmark Identification:
+- Tibial plateau surface extracted from slices 94–215
+- K-Means clustering (n=2) + PCA used to separate medial/lateral regions
+- Voxel spacing: (0.869141, 0.869141, 2.0) mm
+- Visualize Axial view in 3d view
+- Extracted the lowest point of depth (z) from each five mask
+
+
+Lowest Medial and Lateral for Orginal Filled Tibia Mask:
+	- [317.23645866 243.35947514 216] [329.40443242 240.75205219 216]
+
+Lowest Medial and Lateral for 2mm expanded mask:
+	- [317.23645866 243.35947514 218] [329.40443242 240.75205219 218]
+
+Lowest Medial and Lateral for 4mm expanded mask:
+	-[317.23645866 243.35947514 220] [329.40443242 240.75205219 220]
+
+Lowest Medial and Lateral for Randomized mask 1:
+	- [317.23645866 244.22861612 218] [329.40443242 240.75205219 218]
+
+Lowest Medial and Lateral for Randomized mask 2:
+	-[317.23645866 244.22861612 218] [329.40443242 240.75205219 218]
