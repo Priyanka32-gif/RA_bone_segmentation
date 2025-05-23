@@ -27,20 +27,19 @@ A threshold-based method was used to isolate bone (threshold 350).
 Morphological operations were applied to refine segmentation.
 
 Connected components analysis helped isolate femur and tibia masks.
-![alt text](image.png)
+
 
 Task 1.2 – Contour Expansion
 
 Mask erosion performed to get outer shell of bone.
 
 Used Euclidial Distance Transform to expand contour by 2mm and 4mm.
-![alt text](image-2.png)
+
 
 🔀 Task 1.3 – Randomized Contour Expansion
 
 Randomized contour using distance transform and numpy operation between 2mm expanded mask and orginal mask of bone
 
-![alt text](image-3.png)
 
 📍 Task 1.4 – Landmark Localization
 Extract tibial plateau surface
@@ -48,4 +47,4 @@ Extract tibial plateau surface
 PCA + K-Means clustering
 
 Find lowest medial & lateral points (Z-max)
-![alt text](image-4.png)
+
